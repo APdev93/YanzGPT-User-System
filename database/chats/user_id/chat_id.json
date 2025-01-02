@@ -1,0 +1,14 @@
+{
+	"title": "",
+	"timestamp": 0,
+	"chat": [
+		{
+			"role": "user",
+			"content": ""
+		},
+		{
+			"role": "assistant",
+			"content": ""
+		}
+	]
+}

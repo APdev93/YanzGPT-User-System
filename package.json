@@ -1,0 +1,25 @@
+{
+	"name": "ygptusersys",
+	"version": "1.0.0",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"dev": "nodemon index.js",
+		"start": "node index.js"
+	},
+	"keywords": [],
+	"author": "YanzGPT",
+	"license": "ISC",
+	"description": "YanzGPT user system",
+	"devDependencies": {
+		"nodemon": "^3.1.9"
+	},
+	"dependencies": {
+		"body-parser": "^1.20.3",
+		"cors": "^2.8.5",
+		"express": "^4.21.2",
+		"jsonwebtoken": "^9.0.2",
+		"pino": "^9.6.0",
+		"pino-pretty": "^13.0.0"
+	}
+}
