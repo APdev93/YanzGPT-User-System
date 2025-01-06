@@ -1,5 +1,5 @@
 import pino from "pino";
-import chalk from "chalk";
+
 
 import { config } from "../../config.js";
 
@@ -17,17 +17,6 @@ export const createLogger = (options = {}) => {
 			options: {
 				colorize: true,
 				timestamp: `,"time":"${getTime()}"`,
-				messageFormat: (log) => {
-					const levelColors = {
-						info: chalk.blue,
-						warn: chalk.yellow,
-						error: chalk.red,
-						debug: chalk.green
-					};
-					const color = levelColors[log.levelLabel] || chalk.white;
-
-					return `${color(log.levelLabel.toUpperCase())}: ${log.msg}`;
-				},
 				ignore: "pid,hostname",
 				...options
 			}

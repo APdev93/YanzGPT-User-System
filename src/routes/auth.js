@@ -7,11 +7,12 @@ const db = new Db("user.json");
 
 auth.post("/register", async (req, res) => {
 	try {
-		let { id, username, password } = req.body;
+		let { username, whatsapp, password } = req.body;
 
 		let data = {
-			id: id,
+			id: randomBytes(16),
 			username: username,
+			whatsapp: whatsapp,
 			password: password,
 			token: generateToken(),
 			config: {

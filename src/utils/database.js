@@ -23,9 +23,9 @@ export class Db {
 	writeUser(data) {
 		try {
 			let writtenData = fs.writeFileSync(this.db, JSON.stringify(data));
-			return this.message(true, "Successfully Writing User", writtenData);
+			return this.message(true, "Registration successful", writtenData);
 		} catch (error) {
-			return this.message(false, "an error while writing user", error);
+			return this.message(false, "an error while registring user", error);
 		}
 	}
 
@@ -34,7 +34,7 @@ export class Db {
 		let exist = false;
 
 		for (let u of allUser) {
-			if (u.id === user.id) {
+			if (u.whatsapp === user.whatsapp) {
 				exist = true;
 				return this.message(false, "user is already registered", user.id);
 			}
@@ -49,20 +49,11 @@ export class Db {
 		let allUser = this.read();
 		let loggedin;
 
-		for (u of allUser) {
-			if (typeof user.password !== null) {
-				if (u.username === user.username) {
-					return this.message(true, "Login berhasil", u.id);
-				} else {
-					loggedin = false;
-				}
+		for (let u of allUser) {
+			if (u.username === user.username && u.password === user.password) {
+				return this.message(true, "Login berhasil", {id: u.id, username: u.username, whatsapp: u.whatsapp, token: u.token});
 			} else {
-				if (u.username === user.username && u.password === user.password) {
-					return this.message(true, "Login berhasil", u.id);
-				} else {
-					loggedin = false;
-				}
-			    
+				loggedin = false;
 			}
 		}
 
